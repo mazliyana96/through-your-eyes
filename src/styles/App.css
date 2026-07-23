@@ -34,14 +34,15 @@ PAGE
 
     background:url("/images/paper-texture.png");
 
-    background-size:cover;
+    background-size:700px auto;
 
-    background-position:center;
+    background-repeat:repeat;
+
+    background-position:top center;
 
     padding:45px 25px 80px;
 
 }
-
 /* Extra paper texture layer */
 
 .page::before{
@@ -54,9 +55,11 @@ PAGE
 
     background:url("/images/paper-texture.png");
 
-    background-size:cover;
+    background-size:700px auto;
 
-    background-position:center;
+    background-repeat:repeat;
+
+    background-position:top center;
 
     opacity:.22;
 
@@ -81,7 +84,7 @@ LEAF SHADOW
 
     left:0px;
 
-    width:950px;
+    width:1000px;
 
     opacity:.75;
 
