@@ -128,7 +128,7 @@ HEADER
 
     margin-top:8px;
 
-    color:#000;
+    color:#3f3630;
 
     font-size:.95rem;
 
@@ -364,7 +364,7 @@ UPLOAD SECTION
 
     line-height:1.7;
 
-    color:#5f5248;
+    color:#3f3630;
 
 }
 
@@ -430,9 +430,13 @@ MODAL
 
     position:relative;
 
-    width:100%;
+    width:76%;
 
-    max-width:620px;
+    max-width:490px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
 
     background:#f8f4ee;
 
@@ -442,7 +446,7 @@ MODAL
 
     border-radius:20px;
 
-    padding:40px;
+    padding:30px;
 
     box-shadow:
         0 15px 45px rgba(0,0,0,.18);
@@ -469,7 +473,7 @@ MODAL
 
     text-align:center;
 
-    color:#5d5147;
+    color:#3f3630;
 
     line-height:1.7;
 
@@ -527,9 +531,9 @@ FORM
 
     flex-direction:column;
 
-    gap:18px;
+    gap:12px;
 
-    margin-top:35px;
+    margin-top:15px;
 
 }
 
@@ -543,7 +547,7 @@ FORM
 
     font-size:14px;
 
-    color:#3d3127;
+    color:#3f3630;
 
 }
 
@@ -613,7 +617,7 @@ UPLOAD POLAROID
 
     position:relative;
 
-    width:340px;
+    width:260px;
 
     aspect-ratio:1;
 
@@ -669,11 +673,11 @@ UPLOAD POLAROID
 
     position:absolute;
 
-    left:9.5%;
+    left:9.0%;
 
     top:2.5%;
 
-    width:93%;
+    width:94%;
 
     height:92%;
 
@@ -711,7 +715,7 @@ UPLOAD POLAROID
 
     font-family:"Fasthand",cursive;
 
-    font-size:30px;
+    font-size:20px;
 
     color:#7A0000;
 
@@ -740,13 +744,13 @@ BUTTON
 
 .submit-btn{
 
-    margin-top:70px;
+    margin-top:50px;
 
     border:none;
 
     border-radius:12px;
 
-    padding:16px;
+    padding:10px;
 
     background:#7A0000;
 
@@ -754,13 +758,17 @@ BUTTON
 
     font-family:Oswald,sans-serif;
 
-    font-size:25px;
+    font-size:18px;
 
     display:flex;
 
    justify-content:center;
 
    align-items:center;
+
+   width:fit-content;
+
+   margin:60px auto 0;
 
     cursor:pointer;
 
@@ -1234,8 +1242,9 @@ PAGE
 
 .page{
 
-    padding:30px 16px 50px;
+    padding:30px 16px 130px;
 
+    background-size:100% auto;
 }
 
 /* ==========================
@@ -1261,7 +1270,7 @@ HEADER
 
 .page-header{
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 
 }
 
@@ -1273,7 +1282,7 @@ HEADER
 
 .page-header p{
 
-    margin-top:6px;
+    margin-top:-10px;
 
     font-size:.75rem;
 
@@ -1290,6 +1299,8 @@ GALLERY
     width:97%;
 
     margin:0 auto;
+
+    margin-left:-3px;
 
     grid-template-columns:repeat(3,1fr);
 
@@ -1375,7 +1386,7 @@ UPLOAD SECTION
 
 .upload-section{
 
-    margin-top:80px;
+    margin-top:50px;
 
     padding:0 24px;
 
@@ -1393,7 +1404,7 @@ UPLOAD SECTION
 
     line-height:1.1;
 
-    margin-bottom:30px;
+    margin-bottom:10px;
 
     color:#7A0000;
 
@@ -1409,7 +1420,7 @@ UPLOAD SECTION
 
     line-height:1.5;
 
-    color:#6b6259;
+    color:#3f3630;
 
 }
 
@@ -1420,6 +1431,8 @@ UPLOAD SECTION
     align-items:center;
 
     justify-content:center;
+
+    margin-top:20px;
 
     padding:10px 24px;
 
@@ -1460,25 +1473,27 @@ UPLOAD MODAL
 
 .modal{
 
-    width:92%;
+    width:95%;
 
-    max-height:90vh;
+    max-height:85dvh;
 
     overflow-y:auto;
 
-    padding:24px 18px 28px;
+    padding:20px 16px 24px;
+
+    border-radius:12px;
 
 }
 
 .modal h2{
 
-    font-size:2.1rem;
+    font-size:2.3rem;
 
 }
 
 .modal p{
 
-    font-size:.75rem;
+    font-size:.80rem;
 
 }
 
@@ -1490,7 +1505,7 @@ UPLOAD MODAL
 
 .memory-form label{
 
-    font-size:.70rem;
+    font-size:.85rem;
 
 }
 
@@ -1498,7 +1513,11 @@ UPLOAD MODAL
 
 .memory-form textarea{
 
-    font-size:12px;
+    font-size:16px;
+    color:#3f3630;
+    background:#fffdf9;
+    caret-color:#7A0000;
+    -webkit-text-fill-color:#3f3630;
 
 }
 
@@ -1542,7 +1561,7 @@ UPLOAD MODAL
 
     padding:10px 22px;
 
-    font-size:14px;
+    font-size:16px;
 
     border-radius:10px;
 
@@ -1631,5 +1650,57 @@ PHOTO VIEWER
     right:-8px;
 
 }
+
+}
+/* ==========================================================
+SUCCESS MODAL
+========================================================== */
+
+.success-modal{
+
+    max-width:250px;
+
+    padding:40px 10px;
+
+    text-align:center;
+
+}
+
+.success-icon{
+
+    font-size:35px;
+
+    margin-bottom:18px;
+
+}
+
+.success-modal h2{
+
+    font-size:1.2rem;
+    margin-bottom:12px;
+
+}
+
+.success-modal p{
+
+    font-size:0.65rem;
+
+    line-height:1.7;
+    
+    max-width:250px;
+
+    margin:0 auto;
+
+}
+
+.success-modal .submit-btn{
+
+    width:fit-content;
+
+    margin:20px auto 0;
+
+    padding:5px 26px;
+
+    font-size:12px;
 
 }

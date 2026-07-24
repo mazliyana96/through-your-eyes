@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
+import SuccessModal from "./SuccessModal";
 
 function UploadModal({ loadPhotos }) {
 
@@ -9,6 +10,7 @@ function UploadModal({ loadPhotos }) {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   function resetForm() {
     setName("");
@@ -35,12 +37,12 @@ function UploadModal({ loadPhotos }) {
     e.preventDefault();
 
     if (!name.trim()) {
-      alert("Please enter your name.");
+      alert("Oops! Who's this? We need a name! 👀");
       return;
     }
 
     if (!file) {
-      alert("Please choose a photo.");
+      alert("Oh no! You forgot the photo. 📸");
       return;
     }
 
@@ -75,7 +77,7 @@ function UploadModal({ loadPhotos }) {
 
       await loadPhotos();
 
-      closeModal();
+setShowSuccess(true);
 
 
     } catch (err) {
@@ -93,18 +95,18 @@ function UploadModal({ loadPhotos }) {
     <>
       <section className="upload-section">
 
-        <h2>leave your memory</h2>
+        <h2>Drop Your Candids</h2>
 
         <p>
-          Upload your favourite moment from our wedding and leave us
-          a little note. We'd love to see the day through your eyes.
+          The photographer got the highlights. We're collecting the plot twists. 
+          Drop your favourite photo and tell us what was happening.
         </p>
 
         <button
           className="upload-btn"
           onClick={() => setOpen(true)}
         >
-          Share Your Memory
+          Send Your Snap
         </button>
 
       </section>
@@ -128,10 +130,10 @@ function UploadModal({ loadPhotos }) {
               ×
             </button>
 
-            <h2>Share Your Memory</h2>
+            <h2>The Unofficial Album</h2>
 
             <p>
-              We'd love to see our wedding through your eyes.
+              We promise not to judge your camera skills. (Questionable angles are highly encouraged.)
             </p>
 
             <form
@@ -139,20 +141,22 @@ function UploadModal({ loadPhotos }) {
               onSubmit={handleSubmit}
             >
 
-              <label>Your Name</label>
+              <label>Who's This?</label>
 
               <input
                 type="text"
-                placeholder="John & Jane"
+                maxLength={15}
+                placeholder="e.g. Salmah, Jepol, Pak Mail..."
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
 
-              <label>Your Wish</label>
+              <label>We Need Context</label>
 
               <textarea
                 rows="4"
-                placeholder="Leave us a little memory..."
+                maxLength={180}
+                placeholder="Tell us a little about your shot..."
                 value={wish}
                 onChange={(e) => setWish(e.target.value)}
               />
@@ -180,7 +184,7 @@ function UploadModal({ loadPhotos }) {
         </div>
 
         <span>
-          add your photo
+          Frame Your Moment
         </span>
 
       </div>
@@ -215,7 +219,7 @@ function UploadModal({ loadPhotos }) {
       Uploading...
     </>
   ) : (
-    "Share Memory"
+    "Drop It"
   )}
 </button>
 
@@ -225,12 +229,36 @@ function UploadModal({ loadPhotos }) {
 
         </div>
 
+            )}
+
+      {showSuccess && (
+
+        <SuccessModal
+  onClose={() => {
+
+    setShowSuccess(false);
+
+    closeModal();
+
+    setTimeout(() => {
+
+      document
+        .querySelector(".polaroid")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+
+    }, 300);
+
+  }}
+/>
+
       )}
 
     </>
 
   );
-
 }
 
 export default UploadModal;

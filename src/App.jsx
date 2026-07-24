@@ -30,9 +30,9 @@ function App() {
       />
 
       <div className="page-header">
-        <h1>Through Your Eyes</h1>
+        <h1>Roll Camera, Action!</h1>
         <p>
-          Every memory helps us relive our favourite day.
+          Ugly crying, blurry dancing and questionable angles are highly encouraged.
         </p>
       </div>
 

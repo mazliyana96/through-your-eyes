@@ -11,8 +11,8 @@ function Gallery({ photos }) {
   while (displayPhotos.length < 9) {
     displayPhotos.push({
       id: `placeholder-${displayPhotos.length}`,
-      name: "Coming Soon",
-      wish: "Waiting for another beautiful memory...",
+      name: "Next Frame",
+      wish: "Could be yours...",
       photo_url: "https://picsum.photos/500?random=" + displayPhotos.length,
       placeholder: true,
     });
