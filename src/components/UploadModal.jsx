@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import SuccessModal from "./SuccessModal";
+import imageCompression from "browser-image-compression";
 
 function UploadModal({ loadPhotos }) {
 
@@ -23,16 +24,36 @@ function UploadModal({ loadPhotos }) {
     setOpen(false);
     resetForm();
   }
+  async function handleImage(event) {
 
-  function handleImage(event) {
-    const selectedFile = event.target.files[0];
+  const selectedFile = event.target.files[0];
 
-    if (!selectedFile) return;
+  if (!selectedFile) return;
 
-    setFile(selectedFile);
-    setPreview(URL.createObjectURL(selectedFile));
+  try {
+
+    let finalFile = selectedFile;
+
+    if (selectedFile.size > 1024 * 1024) {
+
+      finalFile = await imageCompression(selectedFile, {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1800,
+        useWebWorker: true,
+      });
+
+    }
+
+    setFile(finalFile);
+    setPreview(URL.createObjectURL(finalFile));
+
+  } catch (err) {
+
+    alert("Oops! We couldn't prepare your photo. Please try another one.");
+
   }
 
+}
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -216,7 +237,7 @@ setShowSuccess(true);
   {uploading ? (
     <>
       <span className="spinner"></span>
-      Uploading...
+      Developing...
     </>
   ) : (
     "Drop It"
